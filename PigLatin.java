@@ -52,43 +52,29 @@ public class PigLatin {
     public static String pigLatin(String s){
         s.toLowerCase();
 
-        if(s.length() > 0) {
-           
-            if("AEIOUaeiou".indexOf(s.charAt(0)) != -1) {
-                return (s + "hay");
+        if(s.length() >= 2 && isDigraph(s.substring(0, 2))) {
+            if (s.length() == 2) {
+                return s + "ay";
+            } else {
+                return (s.substring(2, s.length()) + s.substring(0, 2) + "ay");
             }
-            else {
-                if (s.length() == 1) {
-                    return (s + "ay");
-                } else {
-                    if (isDigraph(s.substring(0, 2))) {
-                        if (s.length() == 2) {
-                            return s + "ay";
-                        } else {
-                            return (s.substring(2, s.length()) + s.substring(0, 2) + "ay");
-                        }
-                    } else {
-                        return (s.substring(1, s.length()) + s.charAt(0) + "ay");
-                    }
-                }
-            }
+        } else {
+            return pigLatinSimple(s);
         }
-        else return s;
     }
 
     public static String pigLatinBest(String s){
         s.toLowerCase();
 
         if(s.length() > 0) {
-            if (Character.isLetter(s.charAt(0))) {
+            if (!Character.isLetter(s.charAt(0))) {
                 return s;
             }
             else if (!Character.isLetter(s.charAt(s.length() - 1))) {
                 return pigLatin(s.substring(0, s.length()-1)) + s.charAt(s.length()-1);
             }
             else return pigLatin(s);
-        } else return s;
+        } 
+        else return s;
     }
-                
-
 }
