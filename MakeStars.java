@@ -3,24 +3,26 @@ import java.util.*;
 public class MakeStars {
     public static void main(String[] args) {
 
-        Scanner lines = new Scanner(System.in);
+        Scanner corpus = new Scanner(System.in);
 
-        while (lines.hasNextLine()) {
+        while (corpus.hasNextLine()) {
 
-            Scanner line = new Scanner(lines.nextLine());
+            Scanner line = new Scanner(corpus.nextLine());
             String starsLine = "";
+
             while(line.hasNext()) {
-                String word = line.next();
-                String stars = "";
-                for(int i = 0; i < word.length(); i++) {
-                    stars += "*";
+                String token = line.next();
+                for(int i = 0; i < token.length(); i++) {
+                    starsLine += "*";
                 }
-                starsLine += stars;
                 if (line.hasNext()) { starsLine += " ";}
             }
-            System.out.println(starsLine);
+            if (corpus.hasNextLine()) {
+                System.out.println(starsLine);
+            } else System.out.print(starsLine);
             line.close();
         }
-        lines.close();
+
+        corpus.close();
     }
 }
