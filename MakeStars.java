@@ -16,10 +16,7 @@ public class MakeStars {
                     stars += "*";
                 }
                 starsLine += stars;
-                starsLine += " ";
-            }
-            if (starsLine.length() > 0) {
-                starsLine = starsLine.substring(0, starsLine.length() - 1);
+                if (line.hasNext()) { starsLine += " ";}
             }
             System.out.println(starsLine);
             line.close();
