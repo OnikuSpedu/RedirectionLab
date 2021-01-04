@@ -16,11 +16,12 @@ public class MakeStars {
                     stars += "*";
                 }
                 starsLine += stars;
-                if (i <= 0 && i < word.length - 1) {
-
-                }
+                starsLine += " ";
             }
-            System.out.println();
+            if (starsLine.length() > 0) {
+                starsLine = starsLine.substring(0, starsLine.length() - 1);
+            }
+            System.out.println(starsLine);
             line.close();
         }
         lines.close();
