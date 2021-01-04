@@ -51,7 +51,6 @@ public class PigLatin {
 
     public static String pigLatin(String s){
         s.toLowerCase();
-
         if(s.length() >= 2 && isDigraph(s.substring(0, 2))) {
             if (s.length() == 2) {
                 return s + "ay";
@@ -64,11 +63,9 @@ public class PigLatin {
     }
 
     public static String pigLatinBest(String s){
-        s.toLowerCase();
-
         if(s.length() > 0) {
             if (!Character.isLetter(s.charAt(0))) {
-                return s;
+                return s.toLowerCase();
             }
             else if (!Character.isLetter(s.charAt(s.length() - 1))) {
                 return pigLatin(s.substring(0, s.length()-1)) + s.charAt(s.length()-1);
